@@ -1,0 +1,49 @@
+# abdulnaser sheik
+# Comp Sci
+# Univesrity of Nebraska @ Omaha
+# https://www.cs.cornell.edu/courses/cs3410/2019sp/riscv/interpreter/
+
+# this programs finds the median of 3 integers using RISC-V
+
+ADDI x1,x1,100
+ADDI x2,x2,200
+ADDI x3,x3,300
+
+BGE x1,x2, caseOne
+BGE x2,x1, caseTwo
+
+caseOne:
+  BLT x1,x3,l1
+  HLT
+
+  BGE x2,x3,l2
+  HLT
+ 
+  ADDI x4,x4,x3
+  HLT
+
+l1:
+  ADDI x4,x4,x1
+  HLT
+
+l2:
+  ADDI x4,x4,x2
+  HLT
+
+caseTwo:
+  BGE x1,x3,l4
+  HLT
+
+  BLT x2,x3,l5
+  HLT
+
+  ADDI x4,x4,x3
+  HLT
+
+l4:
+  ADDI x4,x4,x1
+  HLT
+
+l5:
+  ADD x4,x4,x2
+  HLT
